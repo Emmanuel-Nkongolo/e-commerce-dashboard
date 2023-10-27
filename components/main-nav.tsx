@@ -44,27 +44,32 @@ export function MainNav({
             active: pathname === `/${params.storeId}/products`,
         },
         {
+            href: `/${params.storeId}/orders`,
+            label: "Orders",
+            active: pathname === `/${params.storeId}/orders`,
+        },
+        {
             href: `/${params.storeId}/settings`,
             label: "Settings",
             active: pathname === `/${params.storeId}/settings`,
         }
     ]
 
-  return (
-    <nav
-    className={cn("flex items-center space-x-4 lg:space-x-6", className)}
-    >
-     {routes.map((route) => (
-        <Link
-        key={route.href}
-        href={route.href}
-        className={cn(
-            "text-sm font-medium transition-colors hover:text-primary", route.active ? "text-black dark:text-white" : "text-muted-foreground"
-        )}
+    return (
+        <nav
+            className={cn("flex items-center space-x-4 lg:space-x-6", className)}
         >
-        {route.label}
-        </Link>
-     ))}   
-    </nav>
-  )  
+            {routes.map((route) => (
+                <Link
+                    key={route.href}
+                    href={route.href}
+                    className={cn(
+                        "text-sm font-medium transition-colors hover:text-primary", route.active ? "text-black dark:text-white" : "text-muted-foreground"
+                    )}
+                >
+                    {route.label}
+                </Link>
+            ))}
+        </nav>
+    )
 }
